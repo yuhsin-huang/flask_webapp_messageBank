@@ -1,0 +1,18 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<h1>{% block title %}Message Bank{% endblock %}</h1>
+
+<body>
+{% block content %}
+  <p>Welcome to our simple message bank!<br>
+  You are free to submit your message and view messages by following the links below.</p>
+
+  <p>Submit a message <a href="/submit/">here</a>.
+  <br>
+  View messages <a href="/view/">here</a>.</p>
+
+{% endblock %}
+
+</body>
+</html>

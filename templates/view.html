@@ -1,0 +1,23 @@
+<!doctype html>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% block header %}
+  <h1>{% block title %}Message Bank{% endblock %}</h1>
+{% endblock %}
+
+<body>
+{% block content %}
+    <b>Here are some cool messages...</b>
+
+  <p>
+    {% for m in db %}
+    {{m[2]}} 
+    <br>
+    - <i>{{m[1]}}</i>
+  </p>
+  {% endfor %}
+
+{% endblock %}
+
+</body>
+</html>
