@@ -4,7 +4,7 @@ import sqlite3
 app = Flask(__name__)
 
 def get_message_db():
-    # create a database called "messages"
+    # connect the database message_db
     if 'db' not in g:
         g.message_db = sqlite3.connect('messages.sqlite')
     
@@ -28,11 +28,11 @@ def insert_message(request):
     error = None
 
     if error is None:
-        # message_id is the row length of the database + 1
+        # message_id is the row length of the table in the database + 1
         cur.execute("SELECT * FROM messages")
         message_id = len(cur.fetchall())+1
 
-        # insert new message_id, handle, and message values into the database
+        # insert new message_id, handle, and message values into the database table
         db.execute(
             'INSERT INTO messages (message_id, handle, message) VALUES (?, ?, ?)',
             (message_id, handle, message)
